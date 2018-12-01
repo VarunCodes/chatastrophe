@@ -1,5 +1,11 @@
+var webpack = require('webpack');
 module.exports = {
-  entry: __dirname + "/src/index.js",
+  entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    __dirname + "/src/index.js"
+   ],
   output: {
    path: __dirname + "/public",
    filename: "bundle.js",
@@ -13,11 +19,14 @@ module.exports = {
         loader: 'babel-loader', //name of our loader
         query: {
          presets: ['es2015','react'],
-         plugins: ['transform-class-properties'] //query to define our presets (which Babel uses to transpile)
+         plugins: ['react-hot-loader/babel', 'transform-class-properties'] //query to define our presets (which Babel uses to transpile)
         }
       },
     ]
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   devServer: {
   contentBase: "./public", //sets /public as the folder to serve
   historyApiFallback: true, //lets our single page app seem like a multi page app
