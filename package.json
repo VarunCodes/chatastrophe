@@ -1,0 +1,11 @@
+{
+  "name": "chatastrophe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/VarunCodes/chatastrophe.git",
+  "license": "MIT",
+  "dependencies": {
+    "react": "15.6.1",
+    "react-dom": "15.6.1"
+  }
+}
